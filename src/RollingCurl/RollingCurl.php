@@ -125,15 +125,19 @@ class RollingCurl
      * @param string $url
      * @param string $method
      * @param array|string $postData
+     * @param array $userData
      * @param array $headers
      * @param array $options
      * @return RollingCurl
      */
-    public function request($url, $method = "GET", $postData = null, $headers = null, $options = null)
+    public function request($url, $method = "GET", $postData = null, $userData = null, $headers = null, $options = null)
     {
         $newRequest = new Request($url, $method);
         if ($postData) {
             $newRequest->setPostData($postData);
+        }
+        if ($userData) {
+            $newRequest->setUserData($userData);
         }
         if ($headers) {
             $newRequest->setHeaders($headers);
@@ -148,13 +152,14 @@ class RollingCurl
      * Perform GET request
      *
      * @param string $url
+     * @param array $userData
      * @param array $headers
      * @param array $options
      * @return RollingCurl
      */
-    public function get($url, $headers = null, $options = null)
+    public function get($url, $userData = null, $headers = null, $options = null)
     {
-        return $this->request($url, "GET", null, $headers, $options);
+        return $this->request($url, "GET", null, $userData, $headers, $options);
     }
 
     /**
@@ -162,49 +167,53 @@ class RollingCurl
      *
      * @param string $url
      * @param array|string $postData
+     * @param array $userData
      * @param array $headers
      * @param array $options
      * @return RollingCurl
      */
-    public function post($url, $postData = null, $headers = null, $options = null)
+    public function post($url, $postData = null, $userData = null, $headers = null, $options = null)
     {
-        return $this->request($url, "POST", $postData, $headers, $options);
+        return $this->request($url, "POST", $postData, $userData, $headers, $options);
     }
 
     /**
      * Perform PUT request
      *
-     * @param  string      $url
-     * @param  null        $putData
-     * @param  array       $headers
-     * @param  array       $options
+     * @param  string $url
+     * @param  null $putData
+     * @param  array $userData
+     * @param  array $headers
+     * @param  array $options
      *
      * @return RollingCurl
      */
-    public function put($url, $putData = null, $headers = null, $options = null)
+    public function put($url, $putData = null, $userData = null, $headers = null, $options = null)
     {
-        return $this->request($url, "PUT", $putData, $headers, $options);
+        return $this->request($url, "PUT", $putData, $userData, $headers, $options);
     }
 
 
     /**
      * Perform DELETE request
      *
-     * @param  string      $url
-     * @param  array       $headers
-     * @param  array       $options
+     * @param  string $url
+     * @param  array $userData
+     * @param  array $headers
+     * @param  array $options
      *
      * @return RollingCurl
      */
-    public function delete($url, $headers = null, $options = null)
+    public function delete($url, $userData = null, $headers = null, $options = null)
     {
-        return $this->request($url, "DELETE", null, $headers, $options);
+        return $this->request($url, "DELETE", null, $userData, $headers, $options);
     }
 
     /**
      * Run all queued requests
      *
      * @return void
+     * @throws \Exception
      */
     public function execute()
     {

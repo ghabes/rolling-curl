@@ -35,6 +35,10 @@ class Request
     /**
      * @var array
      */
+    private $userData;
+    /**
+     * @var array
+     */
     private $headers;
     /**
      * @var array
@@ -180,6 +184,24 @@ class Request
     public function getPostData()
     {
         return $this->postData;
+    }
+
+    /**
+     * @param array $userData
+     * @return \RollingCurl\Request
+     */
+    public function setUserData($userData)
+    {
+        $this->userData = $userData;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getUserData()
+    {
+        return $this->userData;
     }
 
     /**
