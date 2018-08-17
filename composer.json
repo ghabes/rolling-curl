@@ -1,9 +1,10 @@
 {
-    "name": "chuyskywalker/rolling-curl",
+    "name": "ghabes/rolling-curl",
     "description": "Rolling-Curl: A non-blocking, non-dos multi-curl library for PHP",
+    "version": "3.1.1",
     "type": "library",
     "keywords": ["multi", "curl", "parallel", "requests", "asynchronous", "http"],
-    "homepage": "https://github.com/chuyskywalker/rolling-curl",
+    "homepage": "https://github.com/ghabes/rolling-curl",
     "authors": [
         {
             "name": "Jeff Minard",
@@ -20,6 +21,11 @@
             "name": "Alexander Makarov",
             "email": "sam@rmcreative.ru",
             "homepage": "http://rmcreative.ru/",
+            "role": "Developer"
+        },
+        {
+            "name": "Ghabes",
+            "homepage": "https://github.com/ghabes",
             "role": "Developer"
         }
     ],
